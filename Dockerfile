@@ -5,7 +5,10 @@ tar -zxvf /opt/1.2.0.tar.gz -C /opt/ && rm -rf /opt/1.2.0.tar.gz && chmod 755 /o
 
 WORKDIR /opt/oss-ftp-1.2.0
 
-RUN export LC_ALL=en_US.UTF-8; export LANG="en_US.UTF-8"; locale
+RUN apk add --no-cache libintl gettext && \
+    export LC_ALL=en_US.UTF-8 && \
+    export LANG="en_US.UTF-8" && \
+    locale
 
 ENV TZ=Asia/Shanghai
 
